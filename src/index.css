@@ -78,19 +78,6 @@ ul {
   margin: auto;
 }
 
-
-.pigTile {
-  display: inline;
-  background-repeat: no-repeat;
-  background-position: center 90%;
-  float: left;
-  margin: 2%;
-  padding: 1%;
-  outline: #3B0B0B dotted thick;
-  transition: 0.75s;
-  opacity: 1;
-}
-
 .minBackgroundSneak {
   position: absolute;
   width: inherit;
@@ -149,4 +136,64 @@ ul {
   to {
     transform: rotate(360deg);
   }
+}
+
+.pigTile {
+  position: relative; /* Ensure relative positioning */
+  display: inline-block; /* Ensure inline-block to place the popup beside the tile */
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  margin: 10px; /* Adjust margin as needed */
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 10px); /* Position the popup right beside the tile */
+  transform: translateY(-50%);
+  width: 300px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s ease-in-out;
+  z-index: 999;
+  padding: 20px;
+}
+
+.popup.active {
+  left: 0; 
+}
+
+.pigTile img {
+  width: 100%; /* Ensures the image takes up the full width of its container */
+  height: 100%; /* Ensures the image takes up the full height of its container */
+  object-fit: cover; /* Scales the image to be as large as possible while ensuring its aspect ratio is maintained and it covers the entire container */
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.buttonContainer button {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttonContainer button:hover {
+  background-color: #45a049;
+}
+
+.buttonContainer button:last-child {
+  margin-bottom: 0;
 }
